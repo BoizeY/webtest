@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Demographic Survey</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="survey.js"></script>
+</head>
+
+<body>
+    <h1 class="survey-header">Demographic Survey</h1>
+    <form>
+        <div class="questionBlock textNum">
+            <label for="id" class="question">Participant ID</label>
+            <input type="number" id="id" name="id" class="answer" required><br><br>
+
+        </div><br><br>
+
+        <div class="questionBlock dropdown">
+            <label for="gender" class="question">Gender</label>
+            <select id="gender" name="gender" class="answer" required>
+                <option value="">Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="non-binary">Non-Binary</option>
+                <option value="other">Other</option>
+            </select>
+        </div><br><br>
+
+        <div class="questionBlock textNum">
+            <label for="age" class="question"> Age</label>
+            <input type="number" id="age" name="age" class="answer" required><br><br>
+        </div><br><br>
+
+        <div class="questionBlock dropdown">
+            <label for="dominant-hand" class="question">Dominant Hand</label>
+            <select id="dominant-hand" name="dominant-hand" class="answer" required>
+                <option value="">Select</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+                <option value="ambidextrous">Ambidextrous</option>
+            </select>
+        </div>
+        <br><br>
+
+        <div class="questionBlock dropdown">
+            <label for="hearing-impairment" class="question">Hearing Impairment</label>
+            <select id="hearing-impairment" name="hearing-impairment" class="answer" required>
+                <option value="">Select</option>
+                <option value="left">Left</option>
+                <option value="right">Right</option>
+                <option value="none">None</option>
+                <option value="both">Both</option>
+            </select>
+        </div>
+        <br><br>
+
+        <div class="questionBlock dropdown">
+            <label for="colour-blindness" class="question">Colour Blindness</label>
+            <select id="colour-blindness" name="colour-blindness" class="answer" required>
+                <option value="">Select</option>
+                <option value="red-green">Red-Green</option>
+                <option value="blue-yellow">Blue-Yellow</option>
+                <option value="complete">Complete</option>
+            </select>
+        </div>
+        <br><br>
+
+        <div class="questionBlock likertScale">
+            <label for="likert-scale-1" class="question">Outside of work at home or recreationally how comfortable are you in using technology as part of your regular life?</label>
+            <ul id ="ikert-scale-1" class='likert answer' required>
+                <li>
+                    <input type="radio" name="likert1" value="Strongly Agree">
+                    <label>Strongly Agree</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert1" value="Agree">
+                    <label>Agree</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert1" value="Somewhat Agree">
+                    <label>Somewhat Agree</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert1" value="Neutral">
+                    <label>Neutral</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert1" value="Somewhat Disagree">
+                    <label>Somewhat Disagree</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert1" value="Disagree">
+                    <label>Disagree</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert1" value="Strongly Disagree">
+                    <label>Strongly Disagree</label>
+                </li>
+            </ul>
+        </div>
+        <br><br>
+
+        <div class="questionBlock textShort">
+            <label for="short-answer-1" class="question">What type of technology do you use on a regular basis in your home life?</label><br>
+            <input type="text" id="short-answer-1" name="short-answer-1" class="answer" required>
+        </div>
+        <br><br>
+
+        <div class="questionBlock likertScale">
+            <label for="likert-scale-2" class="question">At work in garrison or on operations how comforatble are you in using technology as part of your role? (Email/work/PC/comms system/battle management systems/etc.)?</label>
+            <ul id="likert-scale-2" class='likert answer' required>
+                <li>
+                    <input type="radio" name="likert2" value="Strongly Agree">
+                    <label>Strongly Agree</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert2" value="Agree">
+                    <label>Agree</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert2" value="Somewhat Agree">
+                    <label>Somewhat Agree</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert2" value="Neutral">
+                    <label>Neutral</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert2" value="Somewhat Disagree">
+                    <label>Somewhat Disagree</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert2" value="Disagree">
+                    <label>Disagree</label>
+                </li>
+                <li>
+                    <input type="radio" name="likert2" value="Strongly Disagree">
+                    <label>Strongly Disagree</label>
+                </li>
+            </ul>
+        </div>
+        <br><br>
+
+        <div class="questionBlock textShort">
+            <label for="short-answer-2" class="question">If there is a difference in the comfort rating taht you provide above between your home life and work why do you think that is?</label><br>
+            <input type="text" id="short-answer-2" name="short-answer-2" class="answer" required>
+        </div>
+        <br><br>
+
+        <!-- tech usage -->
+        <h1 class="survey-header">Technology Usage</h1>
+
+        <label>On average in a normal week how man hours would you be using different technology and ifentify the types of operating systems?</label>
+        <!-- mobile personal -->
+        <div class="questionBlock dropdown">
+            <label for="tech-usage-mobile-personal" class="question">Mobile(Personal)</label>
+            <select id="tech-usage-mobile-personal" name="tech-usage-mobile-personal" class="answer" required>
+                <option value="">Select</option>
+                <option value="Android">Android</option>
+                <option value="iOS">iOS</option>
+                <option value="Windows">Windows</option>
+
+            </select>
+        </div>
+        <br><br>
+
+        <div class="questionBlock textNum">
+            <label for="tech-usage-mobile-personal-hour" class="question">Hours of usage</label><br>
+            <input type="text" id="tech-usage-mobile-personal-hour" name="tech-usage-mobile-personal-hour"
+                class="answer" required>
+        </div>
+        <br><br>
+
+        <!-- mobile work -->
+        <div class="questionBlock dropdown">
+            <label for="tech-usage-mobile-work" class="question">Mobile(Work)</label>
+            <select id="tech-usage-mobile-work" name="tech-usage-mobile-work" class="answer" required>
+                <option value="">Select</option>
+                <option value="Android">Android</option>
+                <option value="iOS">iOS</option>
+                <option value="Windows">Windows</option>
+
+            </select>
+        </div>
+        <br><br>
+
+
+        <div class="questionBlock textNum">
+            <label for="tech-usage-mobile-work-hour" class="question">Hours of usage</label><br>
+            <input type="text" id="tech-usage-mobile-work-hour" name="tech-usage-mobile-work-hour" class="answer"
+                required>
+        </div>
+        <br><br>
+
+        <!-- pc personal -->
+        <div class="questionBlock dropdown">
+            <label for="tech-usage-pc-personal" class="question">PC(Personal)</label>
+            <select id="tech-usage-pc-personal" name="tech-usage-pc-personal" class="answer" required>
+                <option value="">Select</option>
+                <option value="Android">Android</option>
+                <option value="iOS">iOS</option>
+                <option value="Windows">Windows</option>
+
+            </select>
+        </div>
+        <br><br>
+
+        <div class="questionBlock textNum">
+            <label for="tech-usage-pc-personal-hour" class="question">Hours of usage</label><br>
+            <input type="text" id="tech-usage-pc-personal-hour" name="tech-usage-pc-personal-hour" class="answer"
+                required>
+        </div>
+        <br><br>
+
+        <!-- pc work -->
+        <div class="questionBlock dropdown">
+            <label for="tech-usage-pc-work" class="question">PC(Work)</label>
+            <select id="tech-usage-pc-work" name="tech-usage-pc-work" class="answer" required>
+                <option value="">Select</option>
+                <option value="Android">Android</option>
+                <option value="iOS">iOS</option>
+                <option value="Windows">Windows</option>
+
+            </select>
+        </div>
+        <br><br>
+
+        <div class="questionBlock textNum">
+            <label for="tech-usage-pc-work-hour" class="question">Hours of usage</label><br>
+            <input type="text" id="tech-usage-pc-work-hour" name="tech-usage-pc-work-hour" class="answer" required>
+        </div>
+        <br><br>
+    </form>
+    <div class="buttons">
+        <button id ="reload-btn" class="clear">Clear</button>
+        <button id="submit-btn" class="submit">Submit</button>
+    </div>
+</body>
+
+</html>
