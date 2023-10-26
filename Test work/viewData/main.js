@@ -1,5 +1,3 @@
-//this file handles the file input and output
-
 // Add a click event listener to the merge files button
 document.getElementById('mergeFiles').addEventListener('click', function () {
     const filesInput = document.getElementById('csvFileInput');
@@ -72,10 +70,6 @@ document.getElementById('mergeFiles').addEventListener('click', function () {
             console.error(error);
         });
 
-    // Once all files are read, you can work with the merged data
-    console.log(mergedData);
-
-
     // Function to convert the merged data to CSV and create a download link
     const exportToCSV = () => {
         const csvContent = mergedData.map(row => row.join(',')).join('\n');
@@ -102,6 +96,20 @@ document.getElementById('mergeFiles').addEventListener('click', function () {
     exportButton.id = 'exportButton';
     exportButton.addEventListener('click', exportToCSV);
     document.body.appendChild(exportButton);
+
+    // Remove the previous graph button (if any)
+    if (document.getElementById('graphButton')) {
+        document.getElementById('graphButton').remove();
+    }
+
+    // Add a button to create graphs from the merged data
+    const graphButton = document.createElement('button');
+    graphButton.textContent = 'Create Graphs';
+    graphButton.id = 'graphButton';
+    graphButton.addEventListener('click', function () {
+        drawGraphMain(mergedData);
+    });
+    document.body.appendChild(graphButton);
 
 });
 
@@ -143,4 +151,104 @@ function createTable(data) {
     // Clear previous table (if any) and append the new one
     tableContainer.innerHTML = '';
     tableContainer.appendChild(table);
+}
+
+
+
+
+
+/********************************************************************************************************************************************/
+
+/* drawing graphs functions from here on */
+
+function drawGraphMain(data) {
+    const headers = data[0];
+    const numColumns = headers.length;
+
+    //reverse the row and column of data
+    const dataTransposed = data[0].map((col, i) => data.map(row => row[i]));
+
+    //clear anything existing graphs in the graph container
+    const graphContainer = document.querySelector('#graphicsContainer');
+    graphContainer.innerHTML = '';
+
+
+    for (let i = 0; i < numColumns; i++) {
+        const header = headers[i];
+
+        if (header.includes("{int}")) {
+            // perform action for integer data
+            console.log(`Processing integer data for column ${i}`);
+
+
+        } else if (header.includes("{options}")) {
+            // perform action for options data
+            console.log(`Processing options data for column ${i}`);
+
+            const bars = sortOptionsData(dataTransposed[i]);
+
+            // Create the bar graph
+            createBarGraph(header, bars.map(bar => bar.value), bars.map(bar => bar.label));
+
+        } else if (header.includes("{likert}")) {
+            // perform action for likert data
+            console.log(`Processing likert data for column ${i}`);
+        } else {
+            // handle other cases
+            console.log(`No action defined for column ${i}`);
+        }
+    }
+}
+
+function sortOptionsData(data) {
+    // Create an object to store the counts of each string
+    const counts = {};
+
+    // Loop through the data and count the occurrences of each string, excluding the header row
+    for (let i = 1; i < data.length; i++) {
+        const str = data[i];
+
+        if (counts[str]) {
+            counts[str]++;
+        } else {
+            counts[str] = 1;
+        }
+    }
+
+    // Create an array of objects with the string and count for each bar
+    const bars = Object.keys(counts).map(str => ({
+        label: str,
+        value: counts[str]
+    }));
+
+    // Sort the bars in descending order of count
+    bars.sort((a, b) => b.value - a.value);
+
+
+    return bars;
+}
+
+function createBarGraph(title, values, labels) {
+    // Create a bar graph
+    const barGraph = document.createElement('div');
+    barGraph.id = 'bar-graph';
+
+    //create title for the graph
+    const titleElement = document.createElement('h2');
+    titleElement.textContent = title;
+    barGraph.appendChild(titleElement);
+
+    // Create a bar for each value
+    values.forEach((value, index) => {
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+        bar.style.width = `${value * 10}px`;
+        bar.style.background = 'grey'
+        bar.textContent = labels[index];
+        barGraph.appendChild(bar);
+    });
+
+    // Add the bar graph to the page
+    const graphContainer = document.querySelector('#graphicsContainer');
+    graphContainer.appendChild(barGraph);
 }

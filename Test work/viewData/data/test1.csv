@@ -1,4 +1,8 @@
-name,title
-1,jobjob
-2,lolol
-3,yesmans
+name,title,company {options}
+1,jobjob, apple
+2,lolol, google
+3,yesmans, apple
+2,lolol, google
+3,yesmans, apple
+3,yesmans, google
+3,yesmans, apple
