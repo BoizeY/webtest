@@ -109,6 +109,11 @@ document.getElementById('mergeFiles').addEventListener('click', function () {
         document.getElementById('exportButton').remove();
     };
 
+    // Remove the previous export button (if any)
+    if (document.getElementById('exportButton')) {
+        document.getElementById('exportButton').remove();
+    }
+
     // Add a button to export the merged data to CSV
     const exportButton = document.createElement('button');
     exportButton.textContent = 'Export as CSV';

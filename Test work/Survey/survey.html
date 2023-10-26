@@ -10,13 +10,13 @@
     <h1 class="survey-header">Demographic Survey</h1>
     <form>
         <div class="questionBlock textNum">
-            <label for="id" class="question">Participant ID</label>
+            <label for="id" class="question">Participant ID {ID}</label>
             <input type="number" id="id" name="id" class="answer" required><br><br>
 
         </div><br><br>
 
         <div class="questionBlock dropdown">
-            <label for="gender" class="question">Gender</label>
+            <label for="gender" class="question">Gender {options}</label>
             <select id="gender" name="gender" class="answer" required>
                 <option value="">Select</option>
                 <option value="male">Male</option>
@@ -27,12 +27,12 @@
         </div><br><br>
 
         <div class="questionBlock textNum">
-            <label for="age" class="question"> Age</label>
+            <label for="age" class="question">Age {int}</label>
             <input type="number" id="age" name="age" class="answer" required><br><br>
         </div><br><br>
 
         <div class="questionBlock dropdown">
-            <label for="dominant-hand" class="question">Dominant Hand</label>
+            <label for="dominant-hand" class="question">Dominant Hand {options}</label>
             <select id="dominant-hand" name="dominant-hand" class="answer" required>
                 <option value="">Select</option>
                 <option value="left">Left</option>
@@ -43,7 +43,7 @@
         <br><br>
 
         <div class="questionBlock dropdown">
-            <label for="hearing-impairment" class="question">Hearing Impairment</label>
+            <label for="hearing-impairment" class="question">Hearing Impairment {options}</label>
             <select id="hearing-impairment" name="hearing-impairment" class="answer" required>
                 <option value="">Select</option>
                 <option value="left">Left</option>
@@ -55,7 +55,7 @@
         <br><br>
 
         <div class="questionBlock dropdown">
-            <label for="colour-blindness" class="question">Colour Blindness</label>
+            <label for="colour-blindness" class="question">Colour Blindness {options}</label>
             <select id="colour-blindness" name="colour-blindness" class="answer" required>
                 <option value="">Select</option>
                 <option value="red-green">Red-Green</option>
@@ -66,7 +66,7 @@
         <br><br>
 
         <div class="questionBlock likertScale">
-            <label for="likert-scale-1" class="question">Outside of work at home or recreationally how comfortable are you in using technology as part of your regular life?</label>
+            <label for="likert-scale-1" class="question">Outside of work at home or recreationally how comfortable are you in using technology as part of your regular life? {likert}</label>
             <ul id ="ikert-scale-1" class='likert answer' required>
                 <li>
                     <input type="radio" name="likert1" value="Strongly Agree">
@@ -101,13 +101,13 @@
         <br><br>
 
         <div class="questionBlock textShort">
-            <label for="short-answer-1" class="question">What type of technology do you use on a regular basis in your home life?</label><br>
+            <label for="short-answer-1" class="question">What type of technology do you use on a regular basis in your home life? {text}</label><br>
             <input type="text" id="short-answer-1" name="short-answer-1" class="answer" required>
         </div>
         <br><br>
 
         <div class="questionBlock likertScale">
-            <label for="likert-scale-2" class="question">At work in garrison or on operations how comforatble are you in using technology as part of your role? (Email/work/PC/comms system/battle management systems/etc.)?</label>
+            <label for="likert-scale-2" class="question">At work in garrison or on operations how comforatble are you in using technology as part of your role? (Email/work/PC/comms system/battle management systems/etc.)? {likert}</label>
             <ul id="likert-scale-2" class='likert answer' required>
                 <li>
                     <input type="radio" name="likert2" value="Strongly Agree">
